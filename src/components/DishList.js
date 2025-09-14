@@ -3,8 +3,9 @@ import DishCard from "./DishCard";
 
 function DishList({ dishes, onAddDish, onRemoveDish, selectedDishes, onViewIngredients }) {
   return (
-    <div className="dish-list">
+    <div className="row dish-list">
       {dishes.map(dish => (
+        <div key={dish.id} className="col-md-4 mb-4">
         <DishCard
           key={dish.id}
           dish={dish}
@@ -13,6 +14,7 @@ function DishList({ dishes, onAddDish, onRemoveDish, selectedDishes, onViewIngre
           onRemoveDish={onRemoveDish}
           onViewIngredients={onViewIngredients}
         />
+      </div>
       ))}
     </div>
   );

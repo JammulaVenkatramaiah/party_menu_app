@@ -42,7 +42,8 @@ function App() {
   );
 
   return (
-    <div className="app-container">
+    <div className="container py-4">
+      <div className="mb-4">
       <Filters
         categories={categories}
         activeCategory={selectedCategory}
@@ -53,6 +54,7 @@ function App() {
         onVegOnlyChange={setVegOnly}
         perCategoryCount={perCategory}
       />
+      </div>
       <DishList
         dishes={filteredDishes}
         onAddDish={handleAddDish}
@@ -60,10 +62,10 @@ function App() {
         selectedDishes={selectedDishes}
         onViewIngredients={handleViewIngredients}
       />
-            {modalOpen && (<IngredientModal dish={modalDish} onClose={handleCloseModal} />)}
-      <div>
+      {modalOpen && (<IngredientModal dish={modalDish} onClose={handleCloseModal} />)}
+      <div className=" d-flex justify-content-between align-items-center mt-4">
         <strong>Total Selected: {selectedCount}</strong>
-        <button>Continue</button>
+        <button className="btn btn-primary">Continue</button>
       </div>
 
     </div>
