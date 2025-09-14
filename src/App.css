@@ -1,38 +1,188 @@
-.App {
-  text-align: center;
+/* ...existing code... */
+
+body {
+  background: linear-gradient(120deg, hsl(26, 85%, 51%) 0%, hsl(307, 70%, 56%) 100%);
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-container {
+  box-shadow: 0 4px 24px #46f76414;
+  margin-top: 40px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.filters {
+  background: lab(45.25% 64.99 5.95);
+  border-radius: 8px;
+  padding: 12px 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.filters button {
+  border: none;
+  background: hsl(86, 94%, 52%);
+  color: #422402;
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin-right: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.filters button.active,
+.filters button:hover {
+  background: hsl(39, 95%, 63%);
+  font-weight: bold;
+}
+
+.filters input[type="text"] {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #e0c9a6;
+  margin-left: 12px;
+  font-size: 1rem;
+}
+
+.filters label {
+  margin-left: 16px;
+  font-size: 1rem;
+}
+
+.dish-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.dish-card {
+  border: 1px solid hsl(60, 11%, 2%);
+  border-radius: 12px;
+  padding: 18px;
+  width: 240px;
+  background: lch(84.37% 80.55 151.46);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s, background 0.2s;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.dish-card.selected {
+  background: hsl(38, 87%, 50%);
+  box-shadow: 0 4px 16px rgba(80,200,120,0.08);
+}
+
+.dish-card img {
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.dish-card h3 {
+  margin: 8px 0 4px 0;
+  font-size: 1.2rem;
+  color: hwb(32 3% 48%);
+}
+
+.dish-card p {
+  font-size: 0.95rem;
+  color: #6d4c1c;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.dish-card button {
+  margin: 4px 0;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  background: hsl(40, 96%, 46%);
+  color: #422402;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.dish-card button:hover {
+  background: hsl(39, 90%, 51%);
+}
+
+.ingredient-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 1000;
 }
 
-.App-link {
-  color: #61dafb;
+.modal-content {
+  background: hsl(0, 82%, 51%);
+  padding: 36px 28px;
+  border-radius: 12px;
+  min-width: 320px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal-content h2 {
+  margin-bottom: 12px;
+  color: #422402;
+}
+
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.modal-content li {
+  font-size: 1rem;
+  color: hwb(0 3% 60%);
+  margin-bottom: 6px;
+}
+
+.modal-content button {
+  background: #f7d0b3;
+  color: #422402;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.2s;
+}
+
+.modal-content button:hover {
+  background: #fde4b4;
+}
+
+/* Total Selected and Continue button styling */
+.app-container > div:last-child {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-container strong {
+  font-size: 1.1rem;
+  color: #422402;
+}
+
+.app-container button {
+  background: hsl(26, 56%, 59%);
+  color: #422402;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.app-container button:hover {
+  background: #97d222;
 }

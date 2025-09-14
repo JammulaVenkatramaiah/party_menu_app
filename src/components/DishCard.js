@@ -1,0 +1,16 @@
+import React from "react";
+
+function DishCard({ dish, isSelected, onAddDish, onRemoveDish, onViewIngredients }) {
+  return (
+    <div className={`dish-card ${isSelected ? "selected" : ""}`}>
+      <img src={dish.image} alt={dish.name} width={100}/>
+      <h3>{dish.name}</h3>
+      <p>{dish.description}</p>
+      <button onClick={() => (isSelected ? onRemoveDish(dish.id) : onAddDish(dish.id))}>
+        {isSelected ? "Remove" : "Add"}
+      </button>
+      <button onClick={() => onViewIngredients(dish)}>Ingredients</button>
+    </div>
+  );
+}
+export default DishCard;
